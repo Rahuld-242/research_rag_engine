@@ -1,0 +1,8 @@
+pyproject.toml
+src/rag_research_assist.egg-info/PKG-INFO
+src/rag_research_assist.egg-info/SOURCES.txt
+src/rag_research_assist.egg-info/dependency_links.txt
+src/rag_research_assist.egg-info/requires.txt
+src/rag_research_assist.egg-info/top_level.txt
+src/research_rag/__init__.py
+src/research_rag/config.py

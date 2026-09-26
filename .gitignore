@@ -1,0 +1,16 @@
+# Local project specification and working-state notes
+/docs/local/
+/experiments/
+/processed/
+/raw_data/
+/scratch/
+
+.env
+
+__pycache__/
+*.pyc
+.pytest_cache/
+
+.vscode/
+
+.venv/
