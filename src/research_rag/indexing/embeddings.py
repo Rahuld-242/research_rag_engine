@@ -14,7 +14,7 @@ def embed_chunk_records(chunk_records: list[dict], model: SentenceTransformer, b
     return embeddings
 
 def embed_query(query: str, model:SentenceTransformer):
-    query_embedding = model.encode_query(query = query)
+    query_embedding = model.encode_query(inputs = query)
     return query_embedding
 
 """
