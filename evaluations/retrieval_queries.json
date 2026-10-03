@@ -1,0 +1,32 @@
+[
+  {
+    "query_id": "q1",
+    "topic": "dense_retrieval",
+    "query": "Why can proposition-level retrieval outperform passage-level retrieval in dense retrieval?",
+    "relevance_judgments": {}
+  },
+  {
+    "query_id": "q2",
+    "topic": "direct_preference_optimization",
+    "query": "How does Direct Preference Optimization simplify preference learning compared with PPO-based RLHF?",
+    "relevance_judgments": {}
+  },
+  {
+    "query_id": "q3",
+    "topic": "react",
+    "query": "How does ReAct combine reasoning and acting to reduce hallucination and improve task solving?",
+    "relevance_judgments": {}
+  },
+  {
+    "query_id": "q4",
+    "topic": "helm_evaluation",
+    "query": "Why does HELM use multiple evaluation metrics instead of focusing only on accuracy?",
+    "relevance_judgments": {}
+  },
+  {
+    "query_id": "q5",
+    "topic": "rag_paradigms",
+    "query": "How does Advanced RAG address the retrieval limitations of Naive RAG?",
+    "relevance_judgments": {}
+  }
+]

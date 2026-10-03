@@ -4,6 +4,7 @@
 /processed/
 /raw_data/
 /scratch/
+/evaluations/results
 
 .env
 
