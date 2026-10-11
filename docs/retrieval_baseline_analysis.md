@@ -1,5 +1,9 @@
 # Retrieval Baseline Analysis
 
+Documentation review: 10 October 2026. Historical observations below are preserved; the original experiment date is not recorded here. See the master specification, evaluation methodology, and five-query notes.
+
+The saved dense baseline confirms q1 rank 6 and score `0.87546885`. Qualitative relevance assessments remain provisional until recorded by query and point ID in relevance_judgements.json. No tests or retrieval runs were executed during this review.
+
 ## Experiment 1 — Naive Dense Retrieval
 
 ### Objective
@@ -14,7 +18,7 @@ techniques.
 - Embedding dimension: 384
 - Vector database: Qdrant
 - Similarity metric: Cosine
-- Collection: `research_chunks_formula_off_test`
+- Collection: `research_chunks_formula_off_test` (intentional formula-off experiment; the shared parser remains formula-enabled)
 - Initial `top_k`: 5
 - Extended inspection: 20 results
 
@@ -99,7 +103,7 @@ This demonstrates an important distinction:
 | 8 | Relevant / supporting |
 | 1–5 | Topically relevant but less answer-focused |
 
-These manual relevance judgements can later be used when implementing
+These qualitative observations can inform later reviewed point-ID labels when implementing
 retrieval metrics such as NDCG.
 
 ## Next Experiments

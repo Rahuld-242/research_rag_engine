@@ -10,14 +10,14 @@ A research-focused Retrieval-Augmented Generation project for ingesting, indexin
 - SentenceTransformer embeddings
 - Qdrant vector indexing
 - JSONL persistence and incremental indexing
-- Query embedding and retrieval development in progress
+- BGE query embeddings and Qdrant dense top-k retrieval
+- Five-query retrieval JSON and browser inspection dashboard
 
 ## Planned work
 
-- Top-k semantic retrieval from Qdrant
-- Retrieval evaluation
+- Relevance judgements and measured retrieval-quality metrics
 - Context construction
 - End-to-end RAG generation
 - Multi-query retrieval
 - Reranking and hybrid retrieval
-- Agentic research workflows
+- Agentic research workflows (after the naive end-to-end foundation)

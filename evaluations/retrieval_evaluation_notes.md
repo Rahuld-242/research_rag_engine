@@ -1,5 +1,7 @@
 # Retrieval Evaluation Notes
 
+Documentation reconciled: 10 October 2026. See the [master specification](../docs/local/rag-project-spec.md), [evaluation specification](../docs/local/RAG_EVALUATION_SPEC.md), [historical baseline analysis](../docs/retrieval_baseline_analysis.md), and [progress log](../PROGRESS.md). Qualitative observations below are preserved, not newly validated reference labels. No tests were run during this review.
+
 ## Purpose
 
 This file records the manual analysis used to build and validate the retrieval evaluation set for RAG_V2.
@@ -22,7 +24,7 @@ The integration test covers the first question. This evaluation set is for the s
 - Generated retrieval results: `evaluations/results/dense_baseline.json`
 - Human-readable inspection view: `evaluations/results/dense_baseline_dashboard.html`
 
-Generated results are treated as run outputs and should not be edited manually. Relevance judgments will be stored separately so they can be reused across retrieval methods.
+Generated results are treated as run outputs and should not be edited manually. Relevance judgements will be stored separately so they can be reused across retrieval methods.
 
 ## Relevance Scale
 
@@ -32,7 +34,7 @@ Use graded relevance:
 - `1` — relevant/supporting context, but not sufficient as the main answer
 - `0` — not useful for answering the query
 
-Where possible, store relevance judgments against a **stable chunk/point ID**, not a rank number. Rank can change when the retrieval method changes.
+Where possible, store relevance judgements against a **stable chunk/point ID**, not a rank number. Rank can change when the retrieval method changes.
 
 ## Evaluation Queries
 
@@ -102,11 +104,11 @@ render_retrieval_results.py
 dense_baseline_dashboard.html
 ```
 
-The dashboard is for readable inspection of retrieval results. Metric values will be added after relevance judgments are created.
+The dashboard is for readable inspection of retrieval results. Metric values will be added after relevance judgements are created.
 
-## Relevance Judgment Storage
+## Relevance Judgement Storage
 
-Planned structure:
+Current reference-label path and planned use:
 
 ```text
 evaluations/
@@ -114,18 +116,17 @@ evaluations/
 ├── retrieval_evaluation_notes.md
 ├── evaluate_retrieval.py
 ├── render_retrieval_results.py
-├── judgments/
-│   └── relevance_judgments.json
+├── relevance_judgements.json
 └── results/
     ├── dense_baseline.json
     └── dense_baseline_dashboard.html
 ```
 
-Judgments should be keyed by stable identifiers such as `(query_id, point_id)` so they remain valid even if ranks change in later experiments.
+Judgements should be keyed by stable identifiers such as `(query_id, point_id)` so they remain valid even if ranks change in later experiments.
 
 ## Planned Metrics
 
-After relevance judgments are available, implement:
+After relevance judgements are available, implement:
 
 - Precision@5
 - Precision@10
@@ -133,7 +134,7 @@ After relevance judgments are available, implement:
 - NDCG@5
 - NDCG@10
 
-For binary metrics such as Precision@k and MRR, define a clear relevance threshold, likely `relevance > 0`.
+Use `grade >= 1` for Precision@k and the first `grade == 2` for MRR. Missing judgements remain unknown; report incomplete coverage rather than substituting zero. Detailed metric conventions belong to the [evaluation specification](../docs/local/RAG_EVALUATION_SPEC.md).
 
 NDCG will use the graded `0/1/2` relevance labels directly.
 
@@ -165,4 +166,4 @@ The dense retrieval baseline is functioning end-to-end and has a repeatable eval
 
 The five-query evaluation set has been finalized and the baseline results can be inspected through a browser-based dashboard.
 
-The next task is to create `relevance_judgments.json`, label retrieved chunks using the `0/1/2` scale, and implement the first retrieval-quality metrics before modifying the retrieval method.
+The existing `evaluations/relevance_judgements.json` contains five empty per-query objects. Next, trial the planned LLM-assisted judge, calibrate a small human-reviewed sample, retain provisional labels separately, and compute the first metrics. These known checkpoints support naive context construction and generation without blocking them; retrieval enhancements remain later controlled comparisons.
