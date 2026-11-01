@@ -68,13 +68,13 @@ def run_batch(pending_evaluations, llm, checkpoint_path):
         
         
 if __name__ == "__main__":
-    checkpoint_path = "evaluations\\results\\judge_proposals_gpt-oss-20b_batch.json"
+    checkpoint_path = "evaluations\\results\\judge_proposals_gpt-oss-20b_v2_pilot.json"
     baseline_path = "evaluations\\results\\dense_baseline.json"
     
     completed_pairs = load_completed_pairs(checkpoint_path)
     
     pending_evaluations = find_pending_evaluations(baseline_path, completed_pairs)
-    
+        
     print(f"Pending evaluations: {len(pending_evaluations)}")
     
     if pending_evaluations:

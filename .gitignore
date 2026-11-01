@@ -5,6 +5,7 @@
 /raw_data/
 /scratch/
 /evaluations/results
+/evaluations/reports
 
 .env
 
